@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+.quoteHeader {
+  font-size: 1.5em;
+  color: tomato;
+}
+
+.content {
+  font-size: 1.5em;
+  color: rgb(126, 71, 255);
+}
+.content1 {
+  font-size: 1.5em;
+  color: rgb(126, 71, 255);
+}
+
+#Buttons {
+  display: none;
+}
+
+#myImage {
+  padding-bottom: 7px;
+}
+/* 
+#copyVerse {
+  display : none;
+} */
