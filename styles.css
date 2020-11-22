@@ -29,7 +29,7 @@ li {
   padding: 20px;
   background: #f6f6f6;
   font-size: 20px;
-  color: #555;
+  color: rgb(136, 24, 24);
   position: relative;
   border-bottom: 1px solid #e6e6e6;
   /* height: 46px; */
@@ -47,7 +47,7 @@ li span {
 li span:nth-child(2) {
   font-size: 16px;
   margin-top: 6px;
-  color: #999;
+  color: rgb(19, 16, 16);
 }
 
 li div {
@@ -99,4 +99,16 @@ button {
   font-family: ubuntu;
   letter-spacing: 1px;
   color: #999;
+}
+
+#saveVerse{
+padding-left: 10px;
+font-size: .5em;
+}
+
+#notes {
+  color: #999;
+  margin: 10px;
+  font-size: .8em;
+  background: #fff;
 }

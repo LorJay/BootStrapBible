@@ -7,26 +7,50 @@ function renderCafe(doc){
     let li = document.createElement('li');
     let name = document.createElement('span');
     let message = document.createElement('span');
+    let notes = document.createElement('span');
+    notes.id = 'notes';
+    notes.contentEditable = true;
+      
     let cross = document.createElement('div');
+    let saveVerse = document.createElement('span');
+    saveVerse.id = 'saveVerse';
     li.setAttribute('data-id', doc.id);
     name.textContent = doc.data().name + " ";
     message.textContent = doc.data().message;
+    notes.textContent  = doc.data().notes
     cross.textContent = "x";
-
+    saveVerse.textContent = "save";
     li.appendChild(name);
     li.appendChild(message);
-    li.appendChild(cross);
-
+    li.appendChild(notes);
+    li.appendChild(saveVerse);
+    li.appendChild(cross);  
     cafeList.appendChild(li);
 
     // deleting data
     cross.addEventListener('click', (e) => {
-    
         let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('studyverse').doc(id).delete().then(mooCow => {location.reload()});
-      
-       
-})
+        db.collection('studyverse').doc(id).delete().then(mooCow => {location.reload()});       
+    })
+    
+    // Saving Changes
+    saveVerse.addEventListener('click', (e) => {
+        let id = e.target.parentElement.getAttribute('data-id');
+        let selectedMessage = message.innerText
+        let selectedNotes = notes.innerText
+        console.log(selectedMessage)
+         console.log(selectedNotes)
+        db.collection('studyverse').doc(id).update({
+            message: selectedMessage,
+            notes: selectedNotes
+
+        })
+
+        
+    })
+
+
+
  
 }
 
@@ -37,7 +61,11 @@ db.collection('studyverse').get().then(snapshot => {
     });
 });
 
-// saving data
+
+
+
+
+/* // saving data this is old code and most likely can go
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('studyverse').add({
@@ -46,4 +74,4 @@ form.addEventListener('submit', (e) => {
     }).then(mooCow => {location.reload()});
     form.name.value = '';
     form.message.value = '';
-});
+}); */
