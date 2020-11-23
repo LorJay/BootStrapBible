@@ -17,7 +17,8 @@ function renderCafe(doc){
     li.setAttribute('data-id', doc.id);
     name.textContent = doc.data().name + " ";
     message.textContent = doc.data().message;
-    notes.textContent  = doc.data().notes
+    notes.textContent = doc.data().notes
+    if (notes.textContent =="") {notes.textContent ="Enter notes here"}
     cross.textContent = "x";
     saveVerse.textContent = "save";
     li.appendChild(name);
