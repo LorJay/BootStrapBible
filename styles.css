@@ -103,12 +103,16 @@ button {
 
 #saveVerse{
 padding-left: 10px;
-font-size: .5em;
+font-size: .6em;
 }
 
+#saveVerse:hover {
+  background-color: magenta;
+}
 #notes {
-  color: #999;
+  color: rgb(9, 17, 128);
   margin: 10px;
-  font-size: .8em;
+  font-size: .9em;
   background: #fff;
+  font-style: italic;
 }

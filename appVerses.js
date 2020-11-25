@@ -36,6 +36,8 @@ function renderCafe(doc){
     
     // Saving Changes
     saveVerse.addEventListener('click', (e) => {
+        saveVerse.style.color = "Green";
+        saveVerse.innerText = "Saved";
         let id = e.target.parentElement.getAttribute('data-id');
         let selectedMessage = message.innerText
         let selectedNotes = notes.innerText
