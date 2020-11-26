@@ -11,9 +11,24 @@
         appId: "1:292804202805:web:f4a524fc7cae4647a73c7c",
       };
       // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+      
       const db = firebase.firestore();
-    
+    // FirebaseUI config
+  const uiConfig = {
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    signInOptions: [
+      // Email / Password Provider.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        // Handle sign-in.
+        // Return false to avoid redirect.
+        return false;
+      }
+    }
+  };
 
 
 
@@ -36,11 +51,37 @@ const URL =
   "http://adsitecreator-com.stackstaging.com/BibleQuoter/KJVBible.json";
 //const URL = "http://proverbs1816.com/KJVBible.html";
 
+ const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+  // Listen to RSVP button clicks
+  startRsvpButton.addEventListener('click', () => {
+    if (firebase.auth().currentUser) {
+      // User is signed in; allows user to sign out
+      firebase.auth().signOut();
+    }
+    else {
+      // No user is signed in; allows user to sign in
+      ui.start('#firebaseui-auth-container', uiConfig);
+    }
+  });
+// Listen to the current Auth state
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      startRsvpButton.textContent = "LOGOUT";
+    }
+    else {
+      startRsvpButton.textContent = "Login";
+    }
+  });
+
+
 // Navigation Buttons
 copyVerseBtn.addEventListener("click", () => {
   copyVerseToFirebase()
   copyVerseBtn.innerHTML = "Copied!"
   copyVerseBtn.disabled = true
+   
+  
 })
 
 
@@ -146,8 +187,10 @@ function copyVerseToFirebase() {
  /*  database.ref("studyverse").push({
     name: quoteHeader,
     message: quote */
-    
-db.collection('studyverse').add({
+    /* Firebase */
+  db.collection('studyverse').add({
+        user: firebase.auth().currentUser.displayName,
+        userId: firebase.auth().currentUser.uid,
         name: quoteHeader,
         message: quote
 

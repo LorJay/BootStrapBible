@@ -2,6 +2,7 @@
 const cafeList = document.querySelector('#cafe-list');
 const form = document.querySelector('#add-cafe-form');
 
+
 // create element & render cafe
 function renderCafe(doc){
     let li = document.createElement('li');

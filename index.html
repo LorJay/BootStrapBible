@@ -51,7 +51,9 @@
               <a class="nav-link" href="#">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <div class="container">
+       <button id="startRsvpButton">Login</button>
+ 
             </li>
           </ul>
         </div>
@@ -59,7 +61,14 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    
+      </section>
+  <hr>
+  <section id="firebaseui-auth-container"></section>
+
+  <section id="description-container">
+     
+  </section> 
       <div class="row">
         <div class="col-lg-12 text-center">
            <form>
@@ -168,8 +177,10 @@
       </div>
     </div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <script src="./app.js"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
