@@ -3,6 +3,7 @@ const cafeList = document.querySelector('#cafe-list');
 const form = document.querySelector('#add-cafe-form');
 
 
+
 // create element & render cafe
 function renderCafe(doc){
     let li = document.createElement('li');
@@ -58,9 +59,11 @@ function renderCafe(doc){
  
 }
 
-// getting data
+// Get Data then send to renderer
 db.collection('studyverse').get().then(snapshot => {
+    currentUser = (firebase.auth().currentUser.uid)
     snapshot.docs.forEach(doc => {
+        if (doc.data().userId == firebase.auth().currentUser.uid) // Only render signed in users notes
         renderCafe(doc);
     });
 });
