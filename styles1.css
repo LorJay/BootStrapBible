@@ -8,10 +8,12 @@
 .content {
   font-size: 1.5em;
   color: rgb(126, 71, 255);
+  
 }
 .content1 {
   font-size: 1.5em;
   color: rgb(126, 71, 255);
+  margin: 5px;
 }
 
 #Buttons {
@@ -21,7 +23,7 @@
 #myImage {
   padding-bottom: 7px;
 
-/* 
+}
 #copyVerse {
   display : none;
-} */
+} 

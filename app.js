@@ -68,12 +68,15 @@ const URL =
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       startRsvpButton.textContent = "LOGOUT";
+      console.log(firebase.auth().currentUser.displayName)
+      
     }
     else {
       startRsvpButton.textContent = "Login";
     }
   });
 
+  
 
 // Navigation Buttons
 copyVerseBtn.addEventListener("click", () => {
@@ -154,9 +157,10 @@ function displayChapterVerse() {
     response.books[bibleBook].chapters[bibleChapter].verses[bibleVerse].name;
   quote =
     response.books[bibleBook].chapters[bibleChapter].verses[bibleVerse].text;
+  
   copyVerseBtn.innerHTML = "Copy"
   copyVerseBtn.disabled = false
-
+  copyVerseBtn.style.display ="inline-block"
   // content.textContent = quote;
   contentHeader.textContent = quoteHeader;
   // Get a differnt translation
@@ -193,8 +197,7 @@ function copyVerseToFirebase() {
         userId: firebase.auth().currentUser.uid,
         name: quoteHeader,
         message: quote
-
-
+        
   })
 }
 

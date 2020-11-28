@@ -32,6 +32,7 @@ li {
   color: rgb(136, 24, 24);
   position: relative;
   border-bottom: 1px solid #e6e6e6;
+  font-weight: bold
   /* height: 46px; */
 }
 
@@ -48,6 +49,8 @@ li span:nth-child(2) {
   font-size: 16px;
   margin-top: 6px;
   color: rgb(19, 16, 16);
+  font-weight: bold
+
 }
 
 li div {
@@ -110,9 +113,11 @@ font-size: .6em;
   background-color: magenta;
 }
 #notes {
-  color: rgb(9, 17, 128);
-  margin: 10px;
-  font-size: .9em;
-  background: #fff;
+color: rgb(9, 17, 128); 
+  
+  padding: 10px;
+  font-size: .8em;
+  background: rgb(245, 242, 242);
   font-style: italic;
+  font-weight: normal
 }

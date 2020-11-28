@@ -43,8 +43,7 @@ function renderCafe(doc){
         let id = e.target.parentElement.getAttribute('data-id');
         let selectedMessage = message.innerText
         let selectedNotes = notes.innerText
-        console.log(selectedMessage)
-         console.log(selectedNotes)
+        
         db.collection('studyverse').doc(id).update({
             message: selectedMessage,
             notes: selectedNotes
@@ -64,8 +63,16 @@ db.collection('studyverse').get().then(snapshot => {
     currentUser = (firebase.auth().currentUser.uid)
     snapshot.docs.forEach(doc => {
         if (doc.data().userId == firebase.auth().currentUser.uid) // Only render signed in users notes
-        renderCafe(doc);
+            renderCafe(doc);
+        
+         loggedInName = firebase.auth().currentUser.displayName // Get user name 
     });
+    
+    var first_name = loggedInName.split(' ')[0]  //Display just first namw
+    console.log(first_name)
+    var userFirstName = document.getElementById('userFirstName')
+    userFirstName.innerHTML =(first_name) + "'s "
+    
 });
 
 
